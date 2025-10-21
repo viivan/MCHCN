@@ -6,22 +6,22 @@
 
 
 ## Introduction
-**MCHCN** (Multi-Channel Hypergraph Convolutional Network Guided by Hybrid Random Walks) is a Python-based framework dedicated to **Web API recommendation** in service-oriented computing scenarios, as proposed in the paper *MCHCN.pdf*. It addresses the core challenges of complex mashup-API relationships and data sparsity in service recommendation, achieving efficient and accurate Web API recommendation by integrating hypergraph modeling, hybrid random walks, and contrastive learning.  
+**MCHCN** (Multi-Channel Hypergraph Convolutional Network Guided by Hybrid Random Walks) is a Python-based framework dedicated to **Web API recommendation** in service-oriented computing scenarios, as proposed in our paper. It addresses the core challenges of complex mashup-API relationships and data sparsity in service recommendation, achieving efficient and accurate Web API recommendation by integrating hypergraph modeling, hybrid random walks, and contrastive learning.  
 
-The framework is fully compatible with Python 3.7.4 and TensorFlow 1.14+, and its design strictly aligns with the technical details and experimental settings in *MCHCN.pdf*.
+The framework is fully compatible with Python 3.7.4 and TensorFlow 1.14+, and its design strictly aligns with the technical details and experimental settings in *MCHCN paper*.
 
 
 ## Architecture
-The overall architecture of MCHCN (proposed in *MCHCN.pdf*) consists of three core modules, as visualized below:  
+The overall architecture of MCHCN  consists of three core modules, as visualized below:  
 ![MCHCN Architecture](Overview of the proposed MCHCN method.png)  
 1. **Multi-Channel Hypergraph Construction**: Extract 4 types of service-specific motifs (derived from mashup-API calling relationships and mashup tag information) to build hypergraphs, capturing high-order interactions between mashups and APIs that traditional pairwise graphs cannot represent.  
 2. **Hybrid Random Walk-Guided Convolution**: Use a hybrid random walk strategy (combining partially absorbing and biased random walks) to optimize hypergraph convolution weights, reducing noise and enhancing global information capture.  
 3. **Channel Attention & Contrastive Learning**: Dynamically adjust multi-channel weights via a channel error attention mechanism, and introduce dual-scale contrastive learning to compensate for information loss, ensuring high recommendation accuracy.
 
 
-## Core Features (From MCHCN.pdf)
+## Core Features (From MCHCN paper)
 1. **Motif-Based Hypergraph for Sparsity Mitigation**  
-   As detailed in *MCHCN.pdf* Section 3.3, by studying mashup-API calling relationships and mashup tag information, 4 types of motifs are defined:  
+   As detailed in *MCHCN paper* Section 3.3, by studying mashup-API calling relationships and mashup tag information, 4 types of motifs are defined:  
    - Cross Correlated Motif (shared tags between mashups)  
    - Multiple Strongly Correlated Motif (shared ≥2 tags between mashups)  
    - Single Relation Motif (mashups calling the same API)  
@@ -29,7 +29,7 @@ The overall architecture of MCHCN (proposed in *MCHCN.pdf*) consists of three co
    The constructed hypergraphs not only extract effective high-order information but also significantly alleviate the data sparsity issue in mashup-API calling matrices.  
 
 2. **Hybrid Random Walk for Weight Optimization**  
-   Per *MCHCN.pdf* Section 3.4.1, the hybrid random walk retains the advantages of partially absorbing random walks (capturing global hypergraph information) and biased random walks (balancing homophily and structural equivalence). It optimizes the hypergraph convolution weight matrix, avoiding noise introduced by direct convolution on raw hypergraphs.  
+   Per *MCHCN paper* Section 3.4.1, the hybrid random walk retains the advantages of partially absorbing random walks (capturing global hypergraph information) and biased random walks (balancing homophily and structural equivalence). It optimizes the hypergraph convolution weight matrix, avoiding noise introduced by direct convolution on raw hypergraphs.  
 
 3. **Channel Attention & Contrastive Learning for Accuracy Enhancement**  
    - *Channel Error Attention Mechanism* (Section 3.4.3): Measures the error of each hypergraph channel to dynamically allocate weights, prioritizing channels with stronger discriminative ability for final embedding aggregation.  
@@ -37,7 +37,7 @@ The overall architecture of MCHCN (proposed in *MCHCN.pdf*) consists of three co
 
 
 ## Requirements
-To replicate the experiments in *MCHCN.pdf* and run the framework stably, install the following dependencies (version consistency ensures alignment with paper results):  
+To replicate the experiments in *MCHCN paper* and run the framework stably, install the following dependencies (version consistency ensures alignment with paper results):  
 ```
 gensim==4.1.2
 joblib==1.1.0
@@ -57,10 +57,10 @@ tensorflow==1.14.0
 ### 1. Dataset Preparation
 - **Public Datasets**: The project integrates publicly available service recommendation datasets (e.g., standard benchmark datasets in service computing) to support quick validation of the MCHCN model’s basic functionality. These datasets follow general service recommendation data formats and can be directly used for model debugging and preliminary performance testing without additional preprocessing.  
 
-- **Paper-Specific Dataset (From MCHCN.pdf)**: The **ProgrammableWeb dataset** used in the experiments of *MCHCN.pdf* (Section 4.1) — which contains 6,217 mashup services, 11,930 Web APIs, 13,093 mashup-API calling relationships, and corresponding mashup tag information — is hosted in our dedicated GitHub repository. To replicate the experimental results in *MCHCN.pdf* (e.g., performance comparison in Section 4.4, robustness test in Section 4.6), please access the repository for dataset download and detailed usage guidelines: [www.github.com/your-repo-link](www.github.com/your-repo-link) (replace with your actual GitHub repository URL).
+- **Paper-Specific Dataset (From MCHCN paper)**: The **ProgrammableWeb dataset** used in the experiments of *MCHCN.paper* (Section 4.1) — which contains 6,217 mashup services, 11,930 Web APIs, 13,093 mashup-API calling relationships, and corresponding mashup tag information — is hosted in our dedicated GitHub repository. To replicate the experimental results in *MCHCN paper* (e.g., performance comparison in Section 4.4, robustness test in Section 4.6), please access the repository for dataset download and detailed usage guidelines: [www.github.com/your-repo-link](www.github.com/your-repo-link) (replace with your actual GitHub repository URL).
 
 ### 2. Configuration 
-1. Navigate to the `./config/` directory and modify `MCHCN.conf`—all core parameters are pre-configured to match the optimal settings in *MCHCN.pdf* (Section 4.7 Parameter Experiment):  
+1. Navigate to the `./config/` directory and modify `MCHCN.conf`—all core parameters are pre-configured to match the optimal settings in *MCHCN paper* (Section 4.7 Parameter Experiment):  
    ```ini
    [MCHCN]
    -emb_size 100          # Embedding dimension (Section 4.1: 100)
@@ -99,7 +99,7 @@ python main.py
 
 
 ## Acknowledgment
-As stated in *MCHCN.pdf*, this work is supported by the following funds:  
+As stated in *MCHCN paper*, this work is supported by the following funds:  
 - “Pioneer” and “Leading Goose” R&D Program of Zhejiang Province, China (No. 2025C01022, 2023C01022)  
 - LingYan Planning Project of Zhejiang Province, China (No. 2023C01215)  
 - Science and Technology Key Research Planning Project of HuZhou City, China (No. 2022ZD2019)  
