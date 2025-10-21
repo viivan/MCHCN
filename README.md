@@ -98,9 +98,3 @@ python main.py
 - **Result Saving**: Evaluation metrics (NDCG@5, HR@5) are saved to `./results/MCHCN/`.  
 
 
-## Acknowledgment
-As stated in *MCHCN paper*, this work is supported by the following funds:  
-- “Pioneer” and “Leading Goose” R&D Program of Zhejiang Province, China (No. 2025C01022, 2023C01022)  
-- LingYan Planning Project of Zhejiang Province, China (No. 2023C01215)  
-- Science and Technology Key Research Planning Project of HuZhou City, China (No. 2022ZD2019)  
-- Research of Key Technologies for Baishanzu National Park of China (No. 2022JBGS01)
