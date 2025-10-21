@@ -12,8 +12,8 @@ The framework is fully compatible with Python 3.7.4 and TensorFlow 1.14+, and it
 
 
 ## Architecture
-The overall architecture of MCHCN  consists of three core modules, as visualized below:  
-![MCHCN Architecture](Overview of the proposed MCHCN method.png)  
+The overall architecture of MCHCN  consists of three core modules, as below:  
+[MCHCN Architecture]
 1. **Multi-Channel Hypergraph Construction**: Extract 4 types of service-specific motifs (derived from mashup-API calling relationships and mashup tag information) to build hypergraphs, capturing high-order interactions between mashups and APIs that traditional pairwise graphs cannot represent.  
 2. **Hybrid Random Walk-Guided Convolution**: Use a hybrid random walk strategy (combining partially absorbing and biased random walks) to optimize hypergraph convolution weights, reducing noise and enhancing global information capture.  
 3. **Channel Attention & Contrastive Learning**: Dynamically adjust multi-channel weights via a channel error attention mechanism, and introduce dual-scale contrastive learning to compensate for information loss, ensuring high recommendation accuracy.
