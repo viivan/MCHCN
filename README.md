@@ -55,12 +55,11 @@ tensorflow==1.14.0
 ## Usage
 
 ### 1. Dataset Preparation
-- **Public Datasets**: The project integrates publicly available service recommendation datasets (e.g., standard benchmark datasets in service computing) to support quick validation of the MCHCN model’s basic functionality. These datasets follow general service recommendation data formats and can be directly used for model debugging and preliminary performance testing without additional preprocessing.  
 
-- **Paper-Specific Dataset (From MCHCN paper)**: The **ProgrammableWeb dataset** used in the experiments of *MCHCN.paper* (Section 4.1) — which contains 6,217 mashup services, 11,930 Web APIs, 13,093 mashup-API calling relationships, and corresponding mashup tag information — is hosted in our dedicated GitHub repository. To replicate the experimental results in *MCHCN paper* (e.g., performance comparison in Section 4.4, robustness test in Section 4.6), please access the repository for dataset download and detailed usage guidelines:https://github.com/viivan/mashup-and-Web-API-data1.
+- **Paper-Specific Dataset (From MCHCN paper)**: The **ProgrammableWeb dataset** used in the experiments of *MCHCN.paper* (Section 4.1) — which contains 6,217 mashup services, 11,930 Web APIs, and corresponding mashup tag information — is hosted in our dedicated GitHub repository. To replicate the experimental results in *MCHCN paper* (e.g., performance comparison in Section 4.4, robustness test in Section 4.6), please access the repository for dataset download and detailed usage guidelines:https://github.com/viivan/mashup-and-Web-API-data1.
 
 ### 2. Configuration 
-1. Navigate to the `./config/` directory and modify `MCHCN.conf`—all core parameters are pre-configured to match the optimal settings in *MCHCN paper* (Section 4.7 Parameter Experiment):  
+ Navigate to the `./config/` directory and modify `MCHCN.conf`—all core parameters are pre-configured to match the optimal settings in *MCHCN paper* (Section 4.7 Parameter Experiment):  
    ```ini
    [MCHCN]
    -emb_size 100          # Embedding dimension (Section 4.1: 100)
@@ -76,16 +75,6 @@ tensorflow==1.14.0
    -delta 0.4 -p 4 -q 1   # Hybrid random walk parameters (Section 4.7: optimal combination)
    ```  
 
-2. Configure data paths and evaluation strategies :  
-   ```ini
-   # Data path (ProgrammableWeb dataset)
-   ratings=./dataset/ProgrammableWeb/ratings.txt  # Mashup-API calling data
-   # Evaluation setup (5-fold CV + Top-5 recommendation)
-   evaluation.setup=-cv 5 -b 1  # 5-fold cross-validation, binarization threshold = 1
-   item.ranking=on -topN 5      # Evaluate Top-5 recommendation (NDCG@5, HR@5 as in Section 4.4)
-   # Result output
-   output.setup=on -dir ./results/MCHCN/  # Save evaluation results (aligned with Section 4.4)
-   ```
 
 
 ### 3. Run the Model
