@@ -55,6 +55,7 @@ tensorflow==1.14.0
 ## Usage
 
 ### 1. Dataset Preparation
+- **Public Datasets**: The project integrates publicly available service recommendation datasets (e.g., standard benchmark datasets in service computing) to support quick validation of the MCHCN model’s basic functionality. These datasets follow general service recommendation data formats and can be directly used for model debugging and preliminary performance testing without additional preprocessing.  
 
 - **Paper-Specific Dataset (From MCHCN paper)**: The **ProgrammableWeb dataset** used in the experiments of *MCHCN.paper* (Section 4.1) — which contains 6,217 mashup services, 11,930 Web APIs, and corresponding mashup tag information — is hosted in our dedicated GitHub repository. To replicate the experimental results in *MCHCN paper* (e.g., performance comparison in Section 4.4, robustness test in Section 4.6), please access the repository for dataset download and detailed usage guidelines:https://github.com/viivan/mashup-and-Web-API-data1.
 
@@ -71,7 +72,7 @@ tensorflow==1.14.0
    -ss_rate 0.01          # Contrastive loss weight (Section 4.7: 0.01)
    -batch_size 32         # Batch size (Section 4.1: 32)
    -neg_sample_ratio 4    # Negative sample ratio (Section 4.1: 1 positive : 4 negative)
-   -tag_path ./data/MCHCN_tag.csv  # Mashup tag data path (Section 3.3: required for motif construction)
+   -tag_path ./dataset1/lastfm/MCHCN_tag.csv  # Mashup tag data path (Section 3.3: required for motif construction)
    -delta 0.4 -p 4 -q 1   # Hybrid random walk parameters (Section 4.7: optimal combination)
    ```  
 
